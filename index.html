@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriVerify QR Code Generator</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</head>
+<body>
+    <h1>AgriVerify QR Code Generator</h1>
+    <div>
+        <input type="text" id="cropDetails" placeholder="Enter crop details">
+        <button onclick="generateQRCode()">Generate QR Code</button>
+    </div>
+    <canvas id="qrCanvas"></canvas>
+
+    <script>
+        function generateQRCode() {
+            const cropDetails = document.getElementById('cropDetails').value;
+            QRCode.toCanvas(document.getElementById('qrCanvas'), cropDetails, function (error) {
+                if (error) console.error(error);
+                console.log('QR Code generated!');
+            });
+        }
+    </script>
+</body>
+</html>
